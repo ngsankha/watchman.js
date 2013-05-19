@@ -39,12 +39,70 @@ var deleteWatch = function(file) {
         }
     }
     throw new Error(file + " was not being watched previously");
-}
+};
 
-var changeTrigger = function(file, expression, callback) {
+var changeWatch = function(file, expression, callback) {
     deleteWatch(file);
     watch(file, expression, callback);
-}
+};
+
+var changeTrigger = function(file, event, callback) {
+    for(var i = 0; i < watchList.length; i++) {
+        if(watchList[i].file === file) {
+            watchers[i].on(event, wrapCallback(callback, watchList[i].expression);
+            watchList[i].callback[event] = callback;
+            return;
+        }
+    }
+    throw new Error(file + " was not being watched previously");
+};
+
+var getTriggerList = function(file) {
+    for(var i = 0; i < watchList.length; i++) {
+        if(watchList[i].file === file)
+            return watchList[i].callback;
+    }
+    throw new Error(file + " was not being watched previously");
+};
+
+var deleteTrigger = function(file, event) {
+    var fn = function(file) {};
+    for(var i = 0; i < watchList.length; i++) {
+        if(watchList[i].file === file) {
+            watchers[i].on(event, fn);
+            watchList[i].callback[event] = fn;
+            return;
+        }
+    }
+    throw new Error(file + " was not being watched previously");
+};
+
+var findByExpression = function(expression) {
+    var result = [];
+    for(var i = 0; i < watchList.length; i++) {
+        if(watchList[i].expression === expression)
+            result.push(watchList[i].expression);
+    }
+    return result;
+};
+
+var changeExpression = function(file, expression) {
+    for(var i = 0; i < watchList.length; i++) {
+        if(watchList[i].file === file) {
+            watchList[i].expression = expression;
+            if(watchList[i].callback.add != undefined)
+                watcher.on('add', wrapCallback(watchList[i].callback.add, expression));
+            if(obj.callback.change != undefined)
+                watcher.on('change', wrapCallback(watchList[i].callback.add, expression));
+            if(obj.callback.unlink != undefined)
+                watcher.on('unlink', wrapCallback(watchList[i].callback.add, expression));
+            if(obj.callback.error != undefined)
+                watcher.on('error', wrapCallback(watchList[i].callback.add, expression));
+            return;
+        }
+    }
+    throw new Error(file + " was not being watched previously");
+};
 
 function wrapCallback(realCallback, expression) {
     var fn = function(file) {
