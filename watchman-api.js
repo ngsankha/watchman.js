@@ -29,6 +29,18 @@ var watchList = function(file, expression, callback) {
         watch(file[i], expression[i], callback[i]);
 };
 
+var deleteWatch = function(file) {
+    for(var i = 0; i < watchList.length; i++) {
+        if(watchList[i].file === file) {
+            watchers[i].close();
+            watchList.splice(i, 1);
+            watchers.splice(i, 1);
+            return;
+        }
+    }
+    throw new Error(file + " was not being watched previously");
+}
+
 function wrapCallback(realCallback, expression) {
     var fn = function(file) {
         if(parseExpression(file, expression))
