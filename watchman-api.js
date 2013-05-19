@@ -41,6 +41,11 @@ var deleteWatch = function(file) {
     throw new Error(file + " was not being watched previously");
 }
 
+var changeTrigger = function(file, expression, callback) {
+    deleteWatch(file);
+    watch(file, expression, callback);
+}
+
 function wrapCallback(realCallback, expression) {
     var fn = function(file) {
         if(parseExpression(file, expression))
