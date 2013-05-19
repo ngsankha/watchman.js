@@ -1,4 +1,7 @@
 node_modules
+watchman.js
+test
+package.json
 docs
 *~
 
