@@ -1,18 +1,28 @@
 {
-  "name": "watchman",
+  "name": "watchman.js",
   "version": "0.1.0",
-  "description": "File watching with powerful expression parsing",
+  "description": "A file watching API with a powerful expression parser",
   "main": "watchman.js",
+  "homepage": "http://sankha93.github.io/watchman.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
   "dependencies": {
     "chokidar": "~0.6.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "~1.7.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sankha93/watchman.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sankha93/watchman.js/issues"
   },
   "keywords": [
     "fs",
@@ -22,6 +32,11 @@
     "file",
     "expression"
   ],
-  "author": "Sankha Narayan Guria",
-  "license": "MIT"
+  "author": {
+    "name": "Sankha Narayan Guria",
+    "url": "http://sankha93.github.io"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "af25f7c0f78df7ca406fd7dfe61de2ff7110acfa"
 }
