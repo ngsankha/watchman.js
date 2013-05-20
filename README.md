@@ -1,13 +1,30 @@
 # Watchman.js
 
-A file watching API with a powerful expression parser
+A file watching API with a powerful expression parser.
 
-Watchman.js exists to watch files and raise events when files change (or get deleted/added). It can trigger actions (such as recompiling files) by matching the expressions when the files change.
+Inspired from the [watchman project by Facebook](https://github.com/facebook/watchman).
 
-##Concepts
+You should head over to the [website](http://sankha93.github.io/watchman.js) to read the full docs.
 
-Watchman.js can watch one or more files or directory trees. It matches the files that have changed against its corresponding expression. If the expression validates to be true the callback for that event is called.
+## Requirements
 
-The expression has to be a valid JavaScript Array. It will have tokens which can be expressions themselves, thus allowing you to next expressions. For example, a valid expression would be:
+* [Node.js](http://nodejs.org)
+* [Mocha](http://visionmedia.github.io/mocha) (for the test cases)
 
-`['true']` or `['anyof', ['empty'], ['not', ['exists']]]`
+## Getting the source
+
+```
+git clone https://github.com/sankha93/watchman.js.git
+cd watchman.js
+npm install
+```
+
+This will download all the dependencies.
+
+To run the tests, execute:
+
+    mocha
+
+## Contribute
+
+You bug reports, suggestions are most welcome. File them on the [issues](https://github.com/sankha93/watchman.js/issues) page. You can submit a pull request as well.

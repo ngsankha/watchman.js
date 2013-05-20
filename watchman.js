@@ -1,6 +1,8 @@
 // **Project maintained by [sankha93](https://github.com/sankha93) | View on [Github](https://github.com/sankha93/watchman.js) **
 //
-// A file watching API with a powerful expression parser
+// A file watching API with a powerful expression parser.
+//
+// Inspired from [watchman by Facebook](https://github.com/facebook/watchman).
 //
 // ##Purpose
 //
@@ -13,6 +15,31 @@
 // The expression has to be a valid JavaScript Array. It will have tokens which can be expressions themselves, thus allowing you to next expressions. For example, a valid expression would be:
 //
 // `['true']` or `['anyof', ['empty'], ['not', ['exists']]]`
+//
+// ##Using
+//
+// To use in your projects, just do:
+//
+//     npm install watchman.js
+//
+// Just import the module by:
+//
+//     var watchman = require("watchman.js");
+//
+// ##Example
+//
+// Here I will write a script that will generate the docs when the source changes and it exits on disk and is not empty.
+//
+// ```
+// var watchman = require('watchman.js');
+// var spawn = require('child_process').spawn;
+//
+// function changeTrigger(file) {
+//   spawn('docco', ['watchman.js']);
+// }
+// 
+// watchman.watch('watchman.js', ["allof", ["not", ["empty"]], ["exists"]], {change: changeTrigger});
+// ```
 //
 // ##Expressions
 //
