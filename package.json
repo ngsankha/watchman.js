@@ -1,6 +1,6 @@
 {
   "name": "watchman.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A file watching API with a powerful expression parser",
   "main": "watchman.js",
   "homepage": "http://sankha93.github.io/watchman.js",
