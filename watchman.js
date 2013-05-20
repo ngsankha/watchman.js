@@ -28,7 +28,7 @@
 //
 // ##Example
 //
-// Here I will write a script that will generate the docs when the source changes and it exits on disk and is not empty.
+// Here I will write a script that will generate the docs when the source file changes and it exists on disk and is not empty.
 //
 // ```
 // var watchman = require('watchman.js');
