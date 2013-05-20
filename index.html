@@ -28,13 +28,29 @@
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
               <p><strong>Project maintained by <a href="https://github.com/sankha93">sankha93</a> | View on <a href="https://github.com/sankha93/watchman.js">Github</a> </strong></p>
-<p>A file watching API with a powerful expression parser</p>
+<p>A file watching API with a powerful expression parser.</p>
+<p>Inspired from <a href="https://github.com/facebook/watchman">watchman by Facebook</a>.</p>
 <h2>Purpose</h2>
 <p>Watchman.js exists to watch files and raise events when files change (or get deleted/added). It can trigger actions (such as recompiling files) by matching the expressions when the files change.</p>
 <h2>Concepts</h2>
 <p>Watchman.js can watch one or more files or directory trees. It matches the files that have changed against its corresponding expression. If the expression validates to be true the callback for that event is called.</p>
 <p>The expression has to be a valid JavaScript Array. It will have tokens which can be expressions themselves, thus allowing you to next expressions. For example, a valid expression would be:</p>
 <p><code>[&#39;true&#39;]</code> or <code>[&#39;anyof&#39;, [&#39;empty&#39;], [&#39;not&#39;, [&#39;exists&#39;]]]</code></p>
+<h2>Using</h2>
+<p>To use in your projects, just do:</p>
+<pre><code>npm install watchman.js</code></pre>
+<p>Just import the module by:</p>
+<pre><code>var watchman = require(&quot;watchman.js&quot;);</code></pre>
+<h2>Example</h2>
+<p>Here I will write a script that will generate the docs when the source changes and it exits on disk and is not empty.</p>
+<pre><code>var watchman = require(&#39;watchman.js&#39;);
+var spawn = require(&#39;child_process&#39;).spawn;
+
+function changeTrigger(file) {
+  spawn(&#39;docco&#39;, [&#39;watchman.js&#39;]);
+}
+
+watchman.watch(&#39;watchman.js&#39;, [&quot;allof&quot;, [&quot;not&quot;, [&quot;empty&quot;]], [&quot;exists&quot;]], {change: changeTrigger});</code></pre>
 <h2>Expressions</h2>
 <p>A Watchman.js query expression consists of 1 or more terms. The expression is evaluated against the file and produces a boolean result. If that result is true then the file is considered a match and the corresponding callback is called.</p>
 <p>An expression term is canonically represented as a JSON array whose zeroth element is the string containing the term name.</p>
