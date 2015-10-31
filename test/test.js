@@ -4,7 +4,9 @@ var path = require("path");
 var watchman = require("../watchman");
 
 describe('watchman', function() {
-    fs.writeFileSync('test.txt', 'abc');
+    before(function() {
+        fs.writeFileSync('test.txt', 'abc');
+    });
 
     // Test for the change trigger
     describe('watch()', function() {
