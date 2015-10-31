@@ -9,13 +9,13 @@
     "test": "test"
   },
   "dependencies": {
-    "chokidar": "~0.6.2"
+    "chokidar": "^1.2.0"
   },
   "devDependencies": {
-    "mocha": "~1.7.3"
+    "mocha": "^2.3.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
