@@ -162,7 +162,7 @@ var watch = function(file, expression, callback) {
                 expression: expression,
                 callback: callback };
     watchList.push(obj);
-    var watcher = chokidar.watch(obj.file, {persistent: true});
+    var watcher = chokidar.watch(obj.file, {persistent: true, ignoreInitial: true});
     if(obj.callback.add != undefined)
         watcher.on('add', wrapCallback(obj.callback.add, obj.expression));
     if(obj.callback.change != undefined)
