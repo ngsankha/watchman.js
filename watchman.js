@@ -153,6 +153,8 @@ var watchers = [];
 //   * `add`: Called when a file is added
 //   * `change`: Called when a watched file is changed
 //   * `unlink`: Called when a watched file is removed from disk
+//   * `addDir`: Called when a watched directory is added to disk
+//   * `unlinkDir`: Called when a watched directory is removed from disk
 //   * `error`: Called when an error is encountered
 //
 // Any function in the callback object takes a an argument `file` which is the file that has been changed/created/deleted.
@@ -169,6 +171,10 @@ var watch = function(file, expression, callback) {
         watcher.on('change', wrapCallback(obj.callback.change, obj.expression));
     if(obj.callback.unlink != undefined)
         watcher.on('unlink', wrapCallback(obj.callback.unlink, obj.expression));
+    if(obj.callback.addDir != undefined)
+        watcher.on('addDir', wrapCallback(obj.callback.addDir, obj.expression));
+    if(obj.callback.unlinkDir != undefined)
+        watcher.on('unlinkDir', wrapCallback(obj.callback.unlinkDir, obj.expression));
     if(obj.callback.error != undefined)
         watcher.on('error', wrapCallback(obj.callback.error, obj.expression));
     watchers.push(watcher);
