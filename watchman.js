@@ -175,7 +175,6 @@ var watch = function(file, expression, callback) {
         watcher.on('addDir', wrapCallback(obj.callback.addDir, obj.expression));
     if(obj.callback.unlinkDir != undefined)
         watcher.on('unlinkDir', wrapCallback(obj.callback.unlinkDir, obj.expression));
-
     if(obj.callback.error != undefined)
         watcher.on('error', wrapCallback(obj.callback.error, obj.expression));
     watchers.push(watcher);
