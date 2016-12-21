@@ -9,7 +9,7 @@ You should head over to the [website](http://sankha93.github.io/watchman.js) to 
 ## Requirements
 
 * [Node.js](http://nodejs.org)
-* [Mocha](http://visionmedia.github.io/mocha) (for the test cases)
+* [Mocha](http://mochajs.org/) (for the test cases)
 
 ## Getting the source
 
