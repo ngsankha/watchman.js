@@ -1,9 +1,9 @@
 {
   "name": "watchman.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A file watching API with a powerful expression parser",
   "main": "watchman.js",
-  "homepage": "http://sankha93.github.io/watchman.js",
+  "homepage": "https://sankhs.com/watchman.js",
   "directories": {
     "doc": "docs",
     "test": "test"
@@ -34,9 +34,8 @@
   ],
   "author": {
     "name": "Sankha Narayan Guria",
-    "url": "http://sankha93.github.io"
+    "url": "https://sankhs.com"
   },
   "license": "MIT",
-  "readmeFilename": "README.md",
-  "gitHead": "af25f7c0f78df7ca406fd7dfe61de2ff7110acfa"
+  "readmeFilename": "README.md"
 }

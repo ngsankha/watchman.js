@@ -4,11 +4,11 @@
 //
 // Inspired from [watchman by Facebook](https://github.com/facebook/watchman).
 //
-// ##Purpose
+// ## Purpose
 //
 // Watchman.js exists to watch files and raise events when files change (or get deleted/added). It can trigger actions (such as recompiling files) by matching the expressions when the files change.
 //
-// ##Concepts
+// ## Concepts
 //
 // Watchman.js can watch one or more files or directory trees. It matches the files that have changed against its corresponding expression. If the expression validates to be true the callback for that event is called.
 //
@@ -16,7 +16,7 @@
 //
 // `['true']` or `['anyof', ['empty'], ['not', ['exists']]]`
 //
-// ##Using
+// ## Using
 //
 // To use in your projects, just do:
 //
@@ -26,7 +26,7 @@
 //
 //     var watchman = require("watchman.js");
 //
-// ##Example
+// ## Example
 //
 // Here I will write a script that will generate the docs when the source file changes and it exists on disk and is not empty.
 //
@@ -41,7 +41,7 @@
 // watchman.watch('watchman.js', ["allof", ["not", ["empty"]], ["exists"]], {change: changeTrigger});
 // ```
 //
-// ##Expressions
+// ## Expressions
 //
 // A Watchman.js query expression consists of 1 or more terms. The expression is evaluated against the file and produces a boolean result. If that result is true then the file is considered a match and the corresponding callback is called.
 //
@@ -113,7 +113,7 @@
 //   * `l`: symbolic link
 //   * `s`: socket
 //
-// ##Events
+// ## Events
 //
 // There can be following event types for which the callbacks can be handled:
 //
@@ -131,7 +131,7 @@
 //     }
 // Then the function corresponding to the event will be called.
 //
-// ##Functions
+// ## Functions
 
 var fs = require("fs");
 var path = require("path");

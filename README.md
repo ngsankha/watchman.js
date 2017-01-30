@@ -1,15 +1,10 @@
 # Watchman.js
 
-A file watching API with a powerful expression parser.
+A cross-platform file watching API with a powerful expression parser written in Node.js.
 
 Inspired from the [watchman project by Facebook](https://github.com/facebook/watchman).
 
-You should head over to the [website](http://sankha93.github.io/watchman.js) to read the full docs.
-
-## Requirements
-
-* [Node.js](http://nodejs.org)
-* [Mocha](http://mochajs.org/) (for the test cases)
+You should head over to the [website](https://sankhs.com/watchman.js) to read the full docs.
 
 ## Getting the source
 
@@ -23,7 +18,7 @@ This will download all the dependencies.
 
 To run the tests, execute:
 
-    mocha
+    npm test
 
 ## Contribute
 
